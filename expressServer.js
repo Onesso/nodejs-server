@@ -1,4 +1,5 @@
 const http = require("http");
+const fs = require("fs");
 
 const serve = http.createServer((req, res) => {
   //   console.log(req);
@@ -6,7 +7,9 @@ const serve = http.createServer((req, res) => {
 
   if (req.url === "/") {
     res.writeHead(200, { "content-type": "text/html" });
-    res.write("<h1> hello world 2 </h1>");
+
+    const homePageHtml = fs.readFileSync("node.html");
+    res.write(homePageHtml);
     res.end();
   } else {
     res.writeHead(404, { "content-type": "text/html" });
