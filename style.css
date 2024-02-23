@@ -1,0 +1,14 @@
+body {
+  align-items: center;
+  display: flex;
+}
+img {
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+image {
+  justify-content: center;
+  align-items: center;
+}

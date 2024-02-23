@@ -7,9 +7,20 @@ const serve = http.createServer((req, res) => {
 
   if (req.url === "/") {
     res.writeHead(200, { "content-type": "text/html" });
-
     const homePageHtml = fs.readFileSync("node.html");
     res.write(homePageHtml);
+    res.end();
+  } else if (req.url === "/image.jpg") {
+    res.writeHead(200, { "content-type": "image/jpg" });
+
+    const image = fs.readFileSync("image.jpg");
+    res.write(image);
+    res.end();
+  } else if (req.url === "/style.css") {
+    res.writeHead(200, { "content-type": "text/css" });
+
+    const css = fs.readFileSync("style.css");
+    res.write(css);
     res.end();
   } else {
     res.writeHead(404, { "content-type": "text/html" });
